@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>星星評分</title>
+    <style>
+
+
+        .str1 {
+            border-bottom: 3px solid black;
+            margin: 30px;
+            width: 420px;
+            padding-bottom: 6px;
+        }
+
+        .str2 {
+            width: 420px;
+            text-align: center;
+        }
+
+        fieldset {
+            margin: 100px auto;
+            border-radius: 15px;
+            width: 500px;
+            border: 1px solid #FF60AF;
+            background-color: #FFD9EC;
+        }
+
+        p {
+            font-size: 5px;
+            color: #ADADAD;
+        }
+
+        body {
+            background-color: #FFECEC;
+        }
+
+        .list {
+            overflow: auto;
+            list-style-type: none;
+            background-color: rgba(245, 199, 222, 0.897);
+        }
+
+            .list li {
+                float: left;
+                width: 7em;
+                border-right: 1px solid grey;
+                line-height: 3em;
+            }
+
+                .list li a {
+                    display: block;
+                    text-align: center;
+                }
+
+                    .list li a:hover {
+                        background-color: khaki;
+                        color: mediumslateblue;
+                    }
+
+                    .list li a:link {
+                        text-decoration: none;
+                    }
+    </style>
+</head>
+<body>
+    <div id="allpage">
+        <header>
+            <h2>JavaScript Homework</h2>
+            <nav>
+                <ul class="list">
+                    <li><a href="作業一九九乘法.html">homework1</a></li>
+                    <li><a href="作業二表單.html">homework2</a></li>
+                    <li><a href="作業三評點製作.html">homework3</a></li>
+                    <li><a href="作業四輪播廣告.html">homework4</a></li>
+                    <li><a href="作業五月曆.html">homework5</a></li>
+                </ul>
+
+            </nav>
+        </header>
+    </div>
+    <div id="content">
+        <article class="article">
+            <section class="section">
+                <h2>作業三 : 評點製作</h2>
+
+            </section>
+        </article>
+    </div>
+        
+        <script>
+            window.onload = function () {  //載入視窗時呼叫該方法
+                var imgs = document.getElementsByTagName("img");
+                for (var i = 0; i < imgs.length; i++) {
+                    imgs[i].setAttribute("score", i + 1);//設定分數
+                    imgs[i].onmouseover = function () {
+
+                        var srcEl = event.srcElement;//通過event來獲取原元素
+                        var score = srcEl.getAttribute("score");//獲取分數
+                        for (var j = 0; j < score; j++) {
+                            imgs[j].src = "Images/Ystar.gif";
+                        }
+                        for (var j = score; j < imgs.length; j++) {
+                            imgs[j].src = "Images/Wstar.gif";
+                        }
+                        document.getElementById("idStar").innerHTML = srcEl.getAttribute("score");//通過srcEl呼叫getAttribute方法獲取分數
+                    }
+                }
+            }
+        </script>
+        <img src="Images/Wstar.gif" />
+        <img src="Images/Wstar.gif" />
+        <img src="Images/Wstar.gif" />
+        <img src="Images/Wstar.gif" />
+        <img src="Images/Wstar.gif" />
+        <label id="idStar">0</label>分
+</body>
+</html>
